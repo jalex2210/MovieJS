@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap');;
 @import "./utils/variables";
 @import"./utils/mixin";
+@import"./components/pagesBar";
 
 
 * {
@@ -26,6 +27,7 @@ body {
 
 a {
     text-decoration: none;
+    color: $color-black;
 }
 
 ul {
