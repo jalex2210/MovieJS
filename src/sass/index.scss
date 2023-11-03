@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
-@import "node_modules/modern-normalize/modern-normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap');;
 @import "./utils/variables";
 @import"./utils/mixin";
 
@@ -21,7 +20,7 @@ body {
 }
 
 .container {
-    width: 1024px;
+    width: 882px;
     margin: 0 auto;
 }
 
