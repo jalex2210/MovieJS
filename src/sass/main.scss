@@ -3,15 +3,6 @@
 @import './utils/variables';
 @import './utils/mixin';
 
-@use './base/common';
-
-@use './utils';
-
-@use './components/header-home';
-@use './components/header-library';
-@use './components/cards-home';
-@use './components/cards-library';
-
 * {
   box-sizing: border-box;
   margin: 0;
