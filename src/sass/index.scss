@@ -1,7 +1,5 @@
 @use './base/common';
-
-@use './utils';
-
+@use './utils/' as *;
 @use './components/header-home';
 @use './components/header-library';
 @use './components/cards-home';
