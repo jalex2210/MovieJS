@@ -1,21 +1,3 @@
-@import '../utils/variables';
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  font-family: 'roboto';
-}
-
-ul,
-li {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
 /* Comienza los estilos son para el boton de prueba del modal) */
 /* Se borra cuando se acople a los botones de las peliculas*/
 .movie-button {

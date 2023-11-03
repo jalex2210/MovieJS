@@ -2,7 +2,7 @@
 @import 'node_modules/modern-normalize/modern-normalize.css';
 @import './utils/variables';
 @import './utils/mixin';
-@import '../sass/components/modal-styles';
+@import './components/modal-styles';
 
 * {
   box-sizing: border-box;
@@ -18,6 +18,19 @@ body {
   color: $color-orange;
   background-color: $color-white;
   margin: auto;
+  width: 100%;
+  height: 100vh;
+}
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+    "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: expected \";\".\a   \2577 \a 5 \2502  @import '../sass/components/modal-styles' * {\d\a   \2502                                            ^\a   \2575 \a   sass\\main.scss 5:43  root stylesheet";
 }
 
 .container {
@@ -29,6 +42,7 @@ a {
   text-decoration: none;
 }
 
-ul {
+ul,
+li {
   list-style: none;
 }
