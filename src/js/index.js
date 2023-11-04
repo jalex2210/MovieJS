@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getMovies(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`);
    });
 
+  /* //codigo para paginación no funciono
    function getMovies(url) {
     fetch(url)
       .then(response => response.json())
@@ -54,5 +55,5 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePagination(data.total_pages, pageNumber);
       })
       .catch(error => console.error('Error:', error));
- }
+ }*/
  
