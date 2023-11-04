@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="preconnet" href="https://fonts.googleapis.com" />
-    <link rel="preconnet" href="https://fonts.gstatic.com" />
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <link rel="stylesheet" href="../css/index.min.css" />
-    <title>MovieJS</title>
-    
-    
+    <meta
+      name="description"
+      content="the best site to search for popular movies"
+    />
+    <meta
+      name="keywords"
+      content="movie, movies, film, genres, popularity movies"
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="shortcut icon" href="/src/images/svg/sprite.svg#icon-logo" />
+    <title>Filmoteka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Please do not change stylesheet below - Parcel supports Sass automatically, no sass compiler needed
+    To ensure proper sass complilation, make sure your styles are processed through index.scss-->
+    <link rel="stylesheet" href="/src/sass/index.scss" />
   </head>
   <body>
+    <!-- ❗️❗️❗️ Add partials like so for every page -->
 
     <!-- ENCABEZADO -->
     <header>
@@ -24,17 +36,15 @@
     <main>
 
       <!-- codigo html elkin para barra de busqueda palabras clave y muestra populares
-         con enlace para volver a la portada con las populares listo index.js  -->
+         con enlace para volver a la portada con las populares listo index.js  
 
-      <a href="./index.html">Home</a>
+      <a href="./index.html">Home</a> -->
+
       <section class="search-container">
           <input type="text" id="search-input" placeholder="Buscar película...">
           <button id="search-button">Buscar</button>
       </section>
 
-      <section class="movie-grid">
-          <!-- Las tarjetas de películas se cargarán aquí -->
-      </section>
 
       </main>
 
@@ -46,9 +56,16 @@
     <!-- MODAL -->
     <div>
 
+    <div class="content-wrap">
+      <include src="./partials/header-home.html"></include>
+      <include src="./partials/header-library.html"></include>
+      <include src="./partials/preloader.html"></include>
+      <include src="./partials/cards-home.html"></include>
+      <include src="./partials/cards-library.html"></include>
+      <include src="./partials/pagination.html"></include>
     </div>
-
-
-    <script type="module" src="./js/index.js"></script>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal-card.html"></include>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
