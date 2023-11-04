@@ -1,13 +1,14 @@
 @use './base/common';
 @use './utils/' as *;
-@use './utils/';
 @use './components/header-home';
 @use './components/header-library';
 @use './components/cards-home';
 @use './components/cards-library';
+@use './components/pagination';
+@use './components/footer';
+@use './components/modal-card';
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap');
 @import './utils/variables';
-@import './utils/mixin';
 @import 'node_modules/modern-normalize/modern-normalize.css';
 @import './components/pagesBar';
 @import './components/modal-styles';
