@@ -1,8 +1,37 @@
 $color-white: #ffffff;
 $color-black: #000000;
-$color-orange: #FF6B08;
-$color-button-orange: #FF6B01;
-$color-red:#FF001B;
+$color-orange: #ff6b08;
+$color-button-orange: #ff6b01;
+$color-red: #ff001b;
 $color-logo: #818181;
 $color-text1-gray: #545454;
-$color-text2-gray: #8C8C8C;
+$color-text2-gray: #8c8c8c;
+
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
+
+// Fonts
+$main-font: 'Roboto', sans-serif;
+
+// Text colors
+$main-text-cl: #000000;
+$secondary-text-cl: #ffffff;
+
+$info-title-cl: #8c8c8c;
+$text-footer-cl: #545454;
+
+// Background colors
+$main-bg-cl: #ffffff;
+$secondary-bg-cl: #f7f7f7;
+$dark-bg-cl: #000000;
+$dark-secondary-bg-cl: rgba(0, 0, 0, 0.56);
+
+$secondary-accent-cl: #ff6b08;
+
+// Button colors
+$accent-btn-color: #ff6b08;
+$white-btn-color: #fff;
+$black-btn-color: #000;
+$color-boxPagesBar:#f7f7f7;
+$color-bg-text: #f7f7f7;
