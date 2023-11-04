@@ -1,99 +1,42 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnet" href="https://fonts.googleapis.com" />
-    <link rel="preconnet" href="https://fonts.gstatic.com" />
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/index.min.css" />
-    <title>MovieJS</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    
+    <meta
+      name="description"
+      content="the best site to search for popular movies"
+    />
+    <meta
+      name="keywords"
+      content="movie, movies, film, genres, popularity movies"
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="shortcut icon" href="/src/images/svg/sprite.svg#icon-logo" />
+    <title>Filmoteka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Please do not change stylesheet below - Parcel supports Sass automatically, no sass compiler needed
+    To ensure proper sass complilation, make sure your styles are processed through index.scss-->
+    <link rel="stylesheet" href="/src/sass/index.scss" />
   </head>
   <body>
-    <!-- ENCABEZADO -->
-    <header></header>
+    <!-- ❗️❗️❗️ Add partials like so for every page -->
 
-    <!-- MAIN  -->
-    <main></main>
-
-    <!-- PIE DE PÁGINA -->
-    <footer></footer>
-
-    <!-- MODAL -->
-    <div></div>
-    <section class="loader-modal is-hidden">
-      <span class="loader"></span>
-    </section>
-    <section>
-      <ul class="pages"></ul>
-    </section>
-    <div class="backdrop is-hidden" data-modal>
-      <section class="modal">
-        <div class="modal__close-button" data-modal-close>
-          <img src="../src/images/close.png" alt="/X close button" />
-          <!-- <svg class="close__button">
-            <use href="../src/images/SVG/close.svg"></use>
-          </svg> -->
-        </div>
-        <div class="modal-movie-poster">
-          <div class="modal-movie-poster-image"></div>
-        </div>
-        <div class="container-modal-movie-data">
-          <h1 class="modal-movie-title">A fistul of dead</h1>
-          <div class="modal-movie-data">
-            <ul class="data-info">
-              <li>voto/votos</li>
-              <li>Popularity</li>
-              <li>Original title</li>
-              <li>Genre</li>
-            </ul>
-            <ul class="data-value">
-              <li class="votes">
-                <span class="vote">7.3</span>
-                <span class="slash">/</span>
-                <span class="voted">1234</span>
-              </li>
-              <li class="Popularity">100.2</li>
-              <li class="original-title">A fistul of dead</li>
-              <li class="genre">Western</li>
-            </ul>
-          </div>
-          <div class="modal-about">
-            <div>
-              <h3 class="about-title">ABOUT</h3>
-              <p class="about-sinopsis">
-                Four of the West’s most infamous outlaws assemble to steal a
-                huge stash of gold from the most corrupt settlement of the gold
-                rush towns. But not all goes to plan one is killed and the other
-                three escapes with bags of gold hide out in the abandoned gold
-                mine where they happen across another gang of three – who
-                themselves were planning to hit the very same bank! As tensions
-                rise, things go from bad to worse as they realise the bags of
-                gold are filled with lead... they’ve been double crossed – but
-                by who and how?
-              </p>
-            </div>
-          </div>
-          <div class="modal-buttons">
-            <button class="button modal-watched">ADD TO WATCHED</button>
-            <button class="button modal-queue">ADD TO QUEUE</button>
-          </div>
-        </div>
-      </section>
+    <div class="content-wrap">
+      <include src="./partials/header-home.html"></include>
+      <include src="./partials/header-library.html"></include>
+      <include src="./partials/preloader.html"></include>
+      <include src="./partials/cards-home.html"></include>
+      <include src="./partials/cards-library.html"></include>
+      <include src="./partials/pagination.html"></include>
     </div>
-
-    <!-- este es el boton de prueba para abrir el modal -->
-
-    <div class="peliculas">
-      <button class="movie-button" type="button" data-modal-open>
-        <img src="../src/images/Movie.png" alt="movie-poster" />
-      </button>
-    </div>
-
-
-    <script type="module" src="./js/index.js"></script>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal-card.html"></include>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
