@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnet" href="https://fonts.googleapis.com" />
-    <link rel="preconnet" href="https://fonts.gstatic.com" />
+    <meta
+      name="description"
+      content="the best site to search for popular movies"
+    />
+    <meta
+      name="keywords"
+      content="movie, movies, film, genres, popularity movies"
+    />
+    <meta name="robots" content="index,follow" />
+    <title>Filmoteka</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <title>MovieJS</title>
+    <!-- Please do not change stylesheet below - Parcel supports Sass automatically, no sass compiler needed
+    To ensure proper sass complilation, make sure your styles are processed through index.scss-->
     <link rel="stylesheet" href="/src/sass/index.scss" />
-    <link rel="stylesheet" href="./sass/main.scss" />
   </head>
   <body>
-    <!-- ENCABEZADO -->
-    <header>
-      <div class="content-wrap">
-        <include src="./partials/header-home.html"></include>
-        <include src="./partials/header-library.html"></include>
-        <include src="./partials/cards-library.html"></include>
-        <include src="./partials/cards-home.html"></include>
-      </div>
-    </header>
+    <!-- ❗️❗️❗️ Add partials like so for every page -->
 
-    <!-- MAIN  -->
-    <main></main>
-
-    <!-- PIE DE PÁGINA -->
-    <footer></footer>
-
-    <!-- MODAL -->
-    <div></div>
-
-    <script type="module" src="./js/index.js"></script>
+    <div class="content-wrap">
+      <include src="./partials/header-home.html"></include>
+      <include src="./partials/header-library.html"></include>
+      <include src="./partials/preloader.html"></include>
+      <include src="./partials/cards-home.html"></include>
+      <include src="./partials/cards-library.html"></include>
+      <include src="./partials/pagination.html"></include>
+    </div>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal-card.html"></include>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
