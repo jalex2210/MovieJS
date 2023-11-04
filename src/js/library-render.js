@@ -15,10 +15,16 @@ function libraryEvents(event) {
   }
 
   if (event.target.classList.contains('js-btn-watched')) {
+    // if (getWatchedMovies = []) {
+    //  // Notiflix.Report.info("Oops!", "It's empty in here. Go back and add your favorite movies.", "Ok");
+    // }
     renderWatchedMovies(getWatchedMovies[0]);
   }
 
   if (event.target.classList.contains('js-btn-queue')) {
+    // if (getQueueMovies = []) {
+    //   Notiflix.Report.info("Oops!", "It's empty in here. Go back and add your favorite movies.", "Ok");
+    // }
     renderWatchedMovies(getQueueMovies[0]);
   }
 }
