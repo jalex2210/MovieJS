@@ -71,8 +71,8 @@ movieGrid.addEventListener('click', e => {
     return;
   }
 
-  hideModal('.modal-container');
-  console.log(e);
+  const divClicked = e.target.getAttribute('data-id');
+  hideModal('.modal-container', divClicked);
 });
 // export const moviesContainer = document.querySelector('.cards-container');
 // export const preloader = document.getElementById('preloader');
