@@ -153,8 +153,12 @@ export const getMovieDetails = async movie_id => {
   return response;
 };
 
-async function fetchPageBar(currentPage = 1) {
-  const response = await axios.get(BASE_URL + 'trending/movie/day', {
+async function fetchPageBar(
+  currentPage = 1,
+  route = 'trending/movie/day',
+  searchTerm = ''
+) {
+  const response = await axios.get(BASE_URL + route, {
     // headers: {
     //   Authorization: 'Bearer ' + ACCESTOKEN,
     //   accept: 'application/json',
@@ -163,6 +167,7 @@ async function fetchPageBar(currentPage = 1) {
       api_key: API_KEY,
       language: 'en-US',
       page: currentPage,
+      query: searchTerm,
     },
   });
   return response.data;

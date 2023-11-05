@@ -1,5 +1,5 @@
 import '../sass/components/_cards-home.scss';
-import { getInitialMovies, getGenres, getMovieDetails, API_KEY } from './fetch';
+import { getInitialMovies, BASE_URL, fetchPageBar, API_KEY } from './fetch';
 
 // export const moviesContainer = document.querySelector('.cards-container');
 // export const preloader = document.getElementById('preloader');
@@ -10,13 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const movieGrid = document.querySelector('.movie-grid');
 
   const apiKey = API_KEY;
-
-  function getMovies(url) {
-    fetch(url)
-      .then(response => response.json())
-      .then(data => displayMovies(data.results))
-      .catch(error => console.error('Error:', error));
-  }
 
   function displayMovies(movies) {
     movieGrid.innerHTML = '';
@@ -37,13 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function searchMovies() {
     const searchTerm = searchInput.value;
     if (searchTerm) {
-      getMovies(
-        `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`
-      );
+      fetchPageBar(1, '/search/movie', searchTerm)
+        .then(data => displayMovies(data.results))
+        .catch(error => console.error('Error:', error));
     } else {
-      getMovies(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`
-      );
+      fetchPageBar(1, 'trending/movie/day', '')
+        .then(data => displayMovies(data.results))
+        .catch(error => console.error('Error:', error));
     }
   }
 
@@ -54,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  getMovies(
-    `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`
-  );
+  window.addEventListener('load', () => {
+    fetchPageBar(1, 'trending/movie/day', '')
+      .then(data => displayMovies(data.results))
+      .catch(error => console.error('Error:', error));
+  });
 });
