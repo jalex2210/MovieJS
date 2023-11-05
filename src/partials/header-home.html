@@ -1,57 +1,46 @@
 <!-- header for main page -->
-<header class="header">
-  <div>
-    <div class="container__wrap">
-      <a href="./index.html" class="nav__logo link"
-        ><svg class="logo">
-          <use href="/src/images/svg/sprite.svg#icon-logo"></use>
-        </svg>
-        <span class="nav__text">Filmoteka</span></a
-      >
-      <nav class="nav">
-        <ul class="nav__list list">
-          <li class="nav__item">
-            <a class="nav__li nav__li--current link" href="./index.html"
-              >HOME</a
-            >
-          </li>
-          <li class="nav__item list list-library is-hidden-firebase">
-            <a class="nav__li nav__li--library link" href="">MY LIBRARY</a>
-          </li>
-          <li class="nav__li logIn">
-            <button
-              class="nav__li--logIn is-hidden"
-              type="button"
-              id="open-modal-btn"
-            >
-              LOG IN
-            </button>
-          </li>
-          <li class="nav__li logOut is-hidden-firebase">
-            <button class="nav__li--logOut is-hidden" type="button">
-              LOG OUT
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <form class="search-form" autocomplete="off">
-      <div class="search-form__box">
+<header class="header-home">
+  <div class="header-home__bg">
+    <div class="header-home__container">
+      <div class="menu">
+        <div class="logo">
+          <a href="#"
+            ><svg class="logo__icon" width="24px" height="24px">
+              <use href="./images/icons.svg#icon-logo-icon"></use></svg          ></a>
+          <a href="#" class="link logo__text">Filmoteka</a>
+        </div>
+        <nav>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="link nav__link--active">home</a>
+            </li>
+
+            <li class="nav__item">
+              <a id="library" href="#" class="link nav__link js-library"
+                >my library</a
+              >
+            </li>
+            <button class="log-in" type="submit" login-open>Sign in</button>
+
+            <button class="log-out is-hidden" type="submit">Log Out</button>
+          </ul>
+        </nav>
+      </div>
+      <form class="search-form" id="search-form">
         <input
-          class="search-form__input"
-          name="searchQuery"
           type="text"
-          placeholder="Movie search"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search movies..."
         />
-        <button class="search-form__button" type="submit">
-          <svg class="search-form__svg">
-            <use href="/src/images/svg/sprite.svg#icon-search"></use>
+
+        <button type="submit">
+          <svg class="search-form__icon" width="12px" height="12px">
+            <use href="./images/icons.svg#icon-search-icon"></use>
           </svg>
         </button>
-      </div>
-    </form>
-    <p class="warning is-hidden">
-      Search result not successful. Enter the correct movie name
-    </p>
+      </form>
+      <p class="warning"></p>
+    </div>
   </div>
 </header>
