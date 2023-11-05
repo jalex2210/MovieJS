@@ -1,28 +1,36 @@
 import '../sass/components/_modal-card.scss';
 import { moviesContainer } from './cards-home';
 // import { watchedMoviesContainer } from './library';
-import { getMovieDetails } from './fetch';
 import { saveToWatched } from './localStorage';
 import { saveToQue } from './localStorage';
-import { movieID } from './fetch';
+import { movieID, getMovieDetails, fetchPageBar } from './fetch.js';
 // import { after } from 'lodash';
 //import { merge } from 'lodash';
 
 // const btnClose = modal.querySelector('.btn--close');
 
-export function hideModal(tagToHidden) {
+export function hideModal(tagToHidden, divClicked) {
   const modal = document.querySelector(tagToHidden);
   modal.classList.toggle('is-hidden');
+
+  const modalContainer = modal.querySelector('.modal-card');
+  console.log(modalContainer);
+  console.log(divClicked);
+  createModalCard(divClicked);
 }
 
-export const createModalCard = el => {
-  const modalImage = document.createElement('img');
-  modalImage.classList.add('modal-card__img');
-  modalImage.setAttribute(
-    'src',
-    `https://image.tmdb.org/t/p/w300${el.poster_path}`
-  );
-  modalImage.setAttribute('alt', `${el.title}`);
+export const createModalCard = divClicked => {
+  fetchPageBar(1, `movie/${divClicked}`, '').then(response => {
+    console.log(response);
+    console.log(response.poster_path);
+    const modalImage = document.createElement('img');
+    modalImage.classList.add('modal-card__img');
+    modalImage.setAttribute(
+      'src',
+      `https://image.tmdb.org/t/p/w300${response.poster_path}`
+    );
+    modalImage.setAttribute('alt', `${response.title}`);
+  });
 
   //   const modalHeader = document.createElement('h2');
   //   modalHeader.classList.add('modal-card__title');
@@ -172,7 +180,6 @@ export const createModalCard = el => {
 //   });
 // };
 
-// moviesContainer.addEventListener('click', displayMovieInfo);
 // watchedMoviesContainer.addEventListener('click', displayMovieInfo);
 
 // btnClose.addEventListener('click', hideModal);
