@@ -8,6 +8,7 @@ import { renderMovies } from './search-form';
 ///////////////////
 
 import { fetchPageBar } from './fetch.js';
+import { getMovies } from './cards-home.js';
 
 const pagesBar = document.querySelector('.pages');
 const loaderModal = document.querySelector('.loader-modal');
@@ -16,6 +17,7 @@ const requestFetch = page => {
   fetchPageBar(page)
     .then(ok => {
       console.log('Response async function: OK', ok);
+      getMovies(page, 'trending/movie/day', '');
     })
     .catch(error => console.log(error))
     .finally(() => {
