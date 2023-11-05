@@ -1,7 +1,258 @@
 @use '../utils' as *;
+@import '../utils/variables';
 
 // edit below
 
-.is-hidden {
-  display: none;
+// .is-hidden {
+//   display: none;
+// }
+
+/* Aquí comienza el backdrop*/
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
 }
+
+.backdrop.is-hidden > .modal {
+  transform: scale(0);
+}
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: $info-title-cl;
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Aquí termina el backdrop*/
+
+/* Aquí comienza el contenedor modal*/
+
+.modal {
+  max-width: 882px;
+  background-color: $main-bg-cl;
+  display: flex;
+  position: relative;
+  transform: scale(1);
+  transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__close-button {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+/* Aquí termina el contenedor modal*/
+
+/* Aquí comienza el contenedor de la imagen del modal*/
+
+.modal-movie-poster {
+  width: 50%;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 0;
+}
+
+.modal-movie-poster-image {
+  width: 396px;
+  height: 477px;
+  background-color: $accent-btn-color;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 5px;
+}
+
+/* Aquí termina el contenedor de la imagen del modal*/
+
+/* Aquí comienza la información del modal*/
+
+.container-modal-movie-data {
+  width: 50%;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 4%;
+  padding-left: 0;
+  row-gap: 20px;
+}
+
+.modal-movie-title {
+  font-size: 1.8em;
+  color: $main-text-cl;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.modal-movie-data {
+  display: flex;
+  gap: 50px;
+  color: $main-text-cl;
+}
+
+.data-info {
+  display: flex;
+  flex-direction: column;
+  color: $info-title-cl;
+  font-size: 0.8em;
+  row-gap: 10px;
+}
+
+.data-value {
+  display: flex;
+  flex-direction: column;
+  color: $main-text-cl;
+  font-size: 0.8em;
+  row-gap: 10px;
+}
+
+.votes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vote {
+  align-items: center;
+  justify-content: center;
+  background: $accent-btn-color;
+  padding: 1px 8px;
+  color: $secondary-text-cl;
+  border-radius: 5px;
+}
+
+.slash {
+  align-items: center;
+  padding: 1px 8px;
+  color: $text-footer-cl;
+}
+
+.voted {
+  align-items: center;
+  background-color: $secondary-bg-cl;
+  padding: 1px 8px;
+  color: $main-text-cl;
+  border-radius: 5px;
+}
+
+.about-title {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.about-sinopsis {
+  font-size: 0.7em;
+  line-height: 20px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+/* Aquí termina la información del modal*/
+
+/* Aquí comienza los botones del modal*/
+
+.modal-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  padding: 15px;
+  font-size: 0.6em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-watched {
+  background-color: $accent-btn-color;
+  color: $white-btn-color;
+}
+
+.modal-queue {
+  background-color: $main-bg-cl;
+  color: $black-btn-color;
+  border: 1px solid $dark-bg-cl;
+}
+
+/* Aquí Terminan los botones del modal*/
+
+/* Aquí comienza el responsive para tablets del modal*/
+
+@media (max-width: 1023px) {
+  .modal {
+    max-width: 618px;
+  }
+
+  .modal-movie-poster {
+    align-items: flex-start;
+    padding: 6% 5%;
+  }
+
+  .modal-movie-poster-image {
+    width: 264px;
+    height: 373px;
+  }
+
+  .modal-movie-title {
+    font-size: 1.2em;
+  }
+}
+
+/* Aquí termina el responsive para tablets del modal*/
+
+/* Aquí comienza el responsive para celulares del modal*/
+
+@media (max-width: 767px) {
+  .modal {
+    max-width: 280px;
+    flex-direction: column;
+  }
+
+  .modal-movie-poster {
+    width: 100%;
+    padding: 20% 6% 0;
+  }
+
+  .modal-movie-poster-image {
+    width: 240px;
+    height: 356px;
+  }
+
+  .container-modal-movie-data {
+    width: 100%;
+    padding: 10% 6%;
+  }
+
+  .modal-movie-title {
+    font-size: 1.2em;
+  }
+}
+
+/* Aquí el responsive para celulares del modal*/
