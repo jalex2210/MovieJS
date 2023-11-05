@@ -1,5 +1,6 @@
 import '../sass/components/_cards-home.scss';
-import { getInitialMovies, BASE_URL, fetchPageBar } from './fetch';
+import { fetchPageBar } from './fetch';
+import { hideModal } from './modal-card';
 
 const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
@@ -40,6 +41,10 @@ function searchMovies() {
   }
 }
 
+window.addEventListener('load', () => {
+  getMovies(1, 'trending/movie/day', '');
+});
+
 searchButton.addEventListener('click', searchMovies);
 searchInput.addEventListener('keydown', event => {
   if (event.key === 'Enter') {
@@ -47,9 +52,13 @@ searchInput.addEventListener('keydown', event => {
   }
 });
 
-window.addEventListener('load', () => {
-  getMovies(1, 'trending/movie/day', '');
-});
+movieGrid.addEventListener('click', e => {
+  if (e.target.tagName !== 'IMG') {
+    return;
+  }
 
+  hideModal('.modal-container');
+  console.log(e);
+});
 // export const moviesContainer = document.querySelector('.cards-container');
 // export const preloader = document.getElementById('preloader');
