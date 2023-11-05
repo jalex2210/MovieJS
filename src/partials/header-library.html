@@ -1,28 +1,23 @@
 <!-- header for library page -->
-
-<header class="header-library visually-hidden">
+<header class="header-library visually-hidden header">
   <div class="header-home__bg">
-    <div class="header-home__container">
-      <div class="menu">
-        <div class="logo js-logo">
-          <svg class="logo__icon" width="24px" height="24px">
-            <use href="/src/images/svg/sprite.svg#icon-logo"></use>
-          </svg>
-          <a href="#" class="link logo__text js-home-page">Filmoteka</a>
-        </div>
-        <nav>
-          <ul class="nav__list">
+    <div class="header-home__container container__wrap">
+        <a href="/src/index.html" class="nav__logo link"
+        ><svg class="logo">
+          <use href="/src/images/svg/sprite.svg#icon-logo"></use>
+        </svg>
+        <span class="nav__text">Filmoteka</span></a>
+        <nav class="nav">
+          <ul class="nav__list list">
             <li class="nav__item">
-              <a href="#" class="link nav__link--active js-home-page"
-                >home</a
-              >
+              <a href="/src/index.html" class="nav__li link">home</a>
             </li>
-            <li class="nav__item">
-              <a href="#" class="link nav__link js-library">my library</a>
+            <li class="nav__item list list-library is-hidden-firebase">
+              <a href="/src/partials/header-library.html" class="link nav__link nav__li--current js-library">my library</a>
             </li>
           </ul>
         </nav>
-      </div>
+      
       <div class="switch__btn">
         <div class="switch__btn__icon-container">
           <i class="switch__btn__icon fa-solid fa-sun"></i>
