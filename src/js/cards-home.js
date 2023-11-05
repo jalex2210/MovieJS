@@ -24,16 +24,22 @@ function displayMovies(movies) {
       movieCard.classList.add('movie-card');
       movieCard.innerHTML = `
             <img src="${
-              'https://image.tmdb.org/t/p/w500/' + movie.poster_path
+              movie.poster_path
+                ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
+                : '/src/images/no-cover-image.png'
             }" alt="${movie.title}">
             <h3 class="movie-title">${movie.title.toUpperCase()}</h3>
-                       <p class="movie-genre">
-                      </p> 
-                        <p class="movie-year">${
-                          movieDetails.release_date
-                            ? movieDetails.release_date.substring(0, 4)
-                            : 'N/A'
-                        }</p>
+            <ul class="movie-info">
+            <li class="movie-info">${movieDetails.genres
+              .map(genre => genre.name)
+              .join(', ')}</li>
+              <li class="movie-info"> | </li>
+            <li class="movie-info">${
+              movieDetails.release_date
+                ? movieDetails.release_date.substring(0, 4)
+                : 'N/A'
+            }</li>
+            </ul>
          `;
       movieGrid.appendChild(movieCard);
     });
