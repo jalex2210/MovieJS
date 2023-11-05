@@ -14,9 +14,9 @@ export function hideModal(tagToHidden, divClicked) {
   modal.classList.toggle('is-hidden');
 
   const modalContainer = modal.querySelector('.modal-card');
-  console.log(modalContainer);
+  // console.log(modalContainer);
   console.log(divClicked);
-  createModalCard(divClicked);
+  // createModalCard(divClicked);
 }
 
 export const createModalCard = divClicked => {
