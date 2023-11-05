@@ -6,7 +6,7 @@
   position: relative;
   background-image: url('/src/images/Rectangle-1x-desktop.jpg');
   background-position: center;
-  max-width: 1024px;
+  width: 100%;
   height: 230px;
   margin: 0 auto;
   color: $secondary-text-cl;
@@ -14,13 +14,13 @@
 }
 
 .header__btn-wrapper {
-    margin-top: 30px;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .header__btn {
-    text-transform: none;
-  }
+  margin-top: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__btn {
+  text-transform: none;
+}
