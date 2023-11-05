@@ -23,11 +23,11 @@ function displayMovies(movies) {
       const movieCard = document.createElement('div');
       movieCard.classList.add('movie-card');
       movieCard.innerHTML = `
-            <img src="${
-              movie.poster_path
-                ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
-                : '/src/images/no-cover-image.png'
-            }" alt="${movie.title}">
+            <img data-id="${movieDetails.id}" src="${
+        movie.poster_path
+          ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
+          : '/src/images/no-cover-image.png'
+      }" alt="${movie.title}">
             <h3 class="movie-title">${movie.title.toUpperCase()}</h3>
             <ul class="movie-info">
             <li class="movie-info">${movieDetails.genres
