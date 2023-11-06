@@ -13,11 +13,10 @@ export function hideModal(tagToHidden, divClicked) {
   const modal = document.querySelector(tagToHidden);
   modal.classList.toggle('is-hidden');
 
-  const modalCard = modal.querySelector('.modal-card');
-
-  createModalCard(divClicked).then(renderBar => {
-    return (modalCard.innerHTML = renderBar);
-  });
+  const modalContainer = modal.querySelector('.modal-card');
+  // console.log(modalContainer);
+  console.log(divClicked);
+  // createModalCard(divClicked);
 }
 
 export const createModalCard = divClicked => {
