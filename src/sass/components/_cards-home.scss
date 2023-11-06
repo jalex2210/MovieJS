@@ -23,6 +23,7 @@ button {
   cursor: pointer;
   font-size: 16px;
   margin-left: 8px;
+<<<<<<< HEAD
 }
 
 /////////////////////////////////////
@@ -39,8 +40,19 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+=======
+>>>>>>> 6b6fec0ee8505a50868657ac9fdb411cfdf2be7e
 }
 
+/////////////////////////////////////
+
+.movie-grid-wrap {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
 .movie-card {
   width: 274px;
   background-color: #fff;
@@ -70,3 +82,13 @@ button {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+<<<<<<< HEAD
+=======
+
+
+.movie-grid, .search-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+  gap: 20px; /* Espacio entre las tarjetas de películas */
+}
+>>>>>>> 6b6fec0ee8505a50868657ac9fdb411cfdf2be7e
