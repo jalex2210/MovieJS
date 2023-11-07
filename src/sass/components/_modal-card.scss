@@ -12,7 +12,7 @@
 }
 
 .modal-card {
-  position: absolute;
+  position: relative;
   width: 882px;
   height: auto;
   background-color: white;
@@ -21,6 +21,13 @@
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
+}
+
+.btn--close {
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: $white-btn-color;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .modal-card__list {
