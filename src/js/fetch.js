@@ -34,11 +34,13 @@ export const getSearchedMovies = async (searchInput, page = 1) => {
         renderMovies(response);
         renderCardPaginator(response.data.total_pages, response.data.page);
         return response;
+
       } else {
         // if no results found - show warning
-        warning.textContent =
-          'Search result not successful. Enter the correct movie name and try again.';
+        warning.textContent = 'Search result not successful. Enter the correct movie name and try again.';
+       
       }
+
     })
     .catch(function (error) {
       // handle error
@@ -140,6 +142,7 @@ export const getMovieDetails = async movie_id => {
 
       movieID = response.data.id;
 
+
       return response.data;
     })
     .catch(function (error) {
@@ -153,24 +156,4 @@ export const getMovieDetails = async movie_id => {
   return response;
 };
 
-async function fetchPageBar(
-  currentPage = 1,
-  route = 'trending/movie/day',
-  searchTerm = ''
-) {
-  const response = await axios.get(BASE_URL + route, {
-    // headers: {
-    //   Authorization: 'Bearer ' + ACCESTOKEN,
-    //   accept: 'application/json',
-    // },
-    params: {
-      api_key: API_KEY,
-      language: 'en-US',
-      page: currentPage,
-      query: searchTerm,
-    },
-  });
-  return response.data;
-}
 
-export { fetchPageBar };

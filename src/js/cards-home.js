@@ -1,78 +1,88 @@
 import '../sass/components/_cards-home.scss';
-import { fetchPageBar } from './fetch';
-import { hideModal } from './modal-card';
+import { getInitialMovies, getGenres, getMovieDetails } from './fetch';
 
-const searchButton = document.getElementById('search-button');
-const searchInput = document.getElementById('search-input');
-const movieGrid = document.querySelector('.movie-grid');
+export const moviesContainer = document.querySelector('.cards-container');
+export const preloader = document.getElementById('preloader')
 
-export function getMovies(
-  currentPage = 1,
-  route = 'trending/movie/day',
-  searchTerm = ''
-) {
-  fetchPageBar(currentPage, route, searchTerm)
-    .then(data => displayMovies(data.results))
-    .catch(error => console.error('Error:', error));
-}
+export function loadMovies() {
+  //get genres for movies
+  getGenres().then(el => {
+    const genres = el;
 
-function displayMovies(movies) {
-  movieGrid.innerHTML = '';
-  movies.forEach(movie => {
-    fetchPageBar(1, `movie/${movie.id}`, '').then(movieDetails => {
-      const movieCard = document.createElement('div');
-      movieCard.classList.add('movie-card');
-      movieCard.innerHTML = `
-            <img data-id="${movieDetails.id}" src="${
-        movie.poster_path
-          ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
-          : '/src/images/no-cover-image.png'
-      }" alt="${movie.title}">
-            <h3 class="movie-title">${movie.title.toUpperCase()}</h3>
-            <ul class="movie-info">
-            <li class="movie-info">${movieDetails.genres
-              .map(genre => genre.name)
-              .join(', ')}</li>
-              <li class="movie-info"> | </li>
-            <li class="movie-info">${
-              movieDetails.release_date
-                ? movieDetails.release_date.substring(0, 4)
-                : 'N/A'
-            }</li>
-            </ul>
-         `;
-      movieGrid.appendChild(movieCard);
+    //get movies with genres description
+    getInitialMovies().then(res => {
+      const initialMovies = res.data.results;
+
+      console.log(res.data.results);
+
+      generateCards(initialMovies, genres);
     });
   });
+
+  //create set of movie cards
+  function generateCards(data, genres) {
+    data.map(movie => {
+      const genresDesc = getGenresDescription(movie, genres);
+      createMovieCard(movie, genresDesc);
+    });
+  }
+
+  //generating array of genres description basing on array of objects from genres fetch function and genre_ids from movie
+  function getGenresDescription(movie, genres) {
+    return genres.reduce((acc, el) => {
+      if (movie.genre_ids.includes(el.id)) {
+        acc.push(el.name);
+      }
+      return acc;
+    }, []);
+  }
+
+  //create single movie card element
+  function createMovieCard(singleMovie, genresDesc) {
+
+    let movieWrapper = document.createElement('div');
+    movieWrapper.classList.add('movie-card');
+    movieWrapper.setAttribute('id', singleMovie.id);
+
+    //create full url for images
+    let urlImg = `https://image.tmdb.org/t/p/w300${singleMovie.poster_path}`;
+
+    let moviePicture = document.createElement('img');
+    moviePicture.classList.add('movie-card__img');
+    moviePicture.setAttribute('src', urlImg);
+    moviePicture.setAttribute('alt', singleMovie.title);
+    moviePicture.setAttribute('loading', 'lazy');
+
+    let movieTitle = document.createElement('h2');
+    movieTitle.classList.add('movie-card__title');
+    movieTitle.textContent = singleMovie.title;
+
+    let movieInfo = document.createElement('span');
+    movieInfo.classList.add('movie-card__info');
+
+    if (genresDesc.length > 3) {
+      genresDesc = genresDesc.slice(0, 2)
+      movieInfo.textContent = `${genresDesc.join(', ') + ', Other'} | ${singleMovie.release_date.slice(0, 4)}`;
+    } else {
+      movieInfo.textContent = `${genresDesc.join(', ')} | ${singleMovie.release_date.slice(0, 4)}`;
+    }
+
+    let movieRating = document.createElement('span');
+    movieRating.classList.add('movie-card__rating');
+    movieRating.textContent = singleMovie.vote_average.toFixed(1);
+
+    //adding elements to HTML
+    moviesContainer.appendChild(movieWrapper);
+    movieWrapper.append(moviePicture, movieTitle, movieInfo, movieRating);
+  }
+  preloader.classList.add('hidden')
 }
 
-function searchMovies() {
-  const searchTerm = searchInput.value;
-  if (searchTerm) {
-    getMovies(1, '/search/movie', searchTerm);
-  } else {
-    getMovies(1, 'trending/movie/day', '');
-  }
-}
+document.addEventListener('DOMContentLoaded', loadMovies)
 
-window.addEventListener('load', () => {
-  getMovies(1, 'trending/movie/day', '');
-});
+/* Test for spinner 
+const delay = () => {
+  setTimeout (() => {
+    loadMovies()}, 3000)}
 
-searchButton.addEventListener('click', searchMovies);
-searchInput.addEventListener('keydown', event => {
-  if (event.key === 'Enter') {
-    searchMovies();
-  }
-});
-
-movieGrid.addEventListener('click', e => {
-  if (e.target.tagName !== 'IMG') {
-    return;
-  }
-
-  const divClicked = e.target.getAttribute('data-id');
-  hideModal('.modal-container', divClicked);
-});
-// export const moviesContainer = document.querySelector('.cards-container');
-// export const preloader = document.getElementById('preloader');
+document.addEventListener('DOMContentLoaded', delay) */
